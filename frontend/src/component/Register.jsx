@@ -46,23 +46,23 @@ import {
                 <FormLabel>Konfirmasi Password</FormLabel>
                 <Input type="password" />
               </FormControl>
-              <Stack spacing={10}>
-                <Stack
-                  direction={{ base: 'column', sm: 'row' }}
-                  align={'start'}
-                  justify={'space-between'}>
-                  {/* <Checkbox>Remember me</Checkbox> */}
-                  {/* <Link color={'blue.400'}>Forgot password?</Link> */}
+              
+                <Stack>
+                </Stack>
+                <Stack pt={0}>
+                <Text align={'center'}>
+                    Sudah punya akun ?<Link color={'#37E2D5'}>Masuk</Link>
+                </Text>
                 </Stack>
                 <Button
-                  bg={'blue.400'}
+                  bg={'#36435A'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: '#8C8E93',
                   }}>
                   Register
                 </Button>
-              </Stack>
+              
             </Stack>
           </Box>
         </Stack>

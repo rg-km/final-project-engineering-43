@@ -47,10 +47,10 @@ import {
                   <Link color={'blue.400'}>Forgot password?</Link>
                 </Stack>
                 <Button
-                  bg={'blue.400'}
+                  bg={'#36435A'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: '#8C8E93',
                   }}>
                   Log in
                 </Button>

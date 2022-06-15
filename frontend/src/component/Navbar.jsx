@@ -28,7 +28,7 @@ export default function Navbar() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={useColorModeValue('#F3EFE0', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -86,10 +86,10 @@ export default function Navbar() {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'pink.400'}
+            bg={'#36435A'}
             href={'#'}
             _hover={{
-              bg: 'pink.300',
+              bg: '#8C8E93',
             }}
           >
             Sign Up
