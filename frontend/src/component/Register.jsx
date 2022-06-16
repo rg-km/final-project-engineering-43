@@ -28,7 +28,7 @@ import {
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.700')}
             boxShadow={'lg'}
-            p={8}>
+            p={20}>
             <Stack spacing={4}>
               <FormControl id="namaLengkap">
                 <FormLabel>Nama Lengkap</FormLabel>
@@ -51,7 +51,7 @@ import {
                 </Stack>
                 <Stack pt={0}>
                 <Text align={'center'}>
-                    Sudah punya akun ?<Link color={'#37E2D5'}>Masuk</Link>
+                    Sudah punya akun ?<Link color={'#37E2D5'}> Masuk</Link>
                 </Text>
                 </Stack>
                 <Button
