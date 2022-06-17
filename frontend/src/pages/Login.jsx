@@ -11,7 +11,9 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  VStack,
 } from '@chakra-ui/react';
+import { Link as ReactLink } from 'react-router-dom';
 
 export default function Login() {
   return (
@@ -21,16 +23,16 @@ export default function Login() {
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}
     >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Log in</Heading>
-        </Stack>
+      <Stack mx={'auto'} minW={'600px'} py={8} px={4}>
         <Box
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
-          p={20}
+          p={16}
         >
+          <VStack align={'flex-start'} mb={8}>
+            <Heading fontSize={'4xl'}>Log in</Heading>
+          </VStack>
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
@@ -58,6 +60,12 @@ export default function Login() {
               >
                 Log in
               </Button>
+              <Text>
+                Belum punya akun ?{' '}
+                <Link as={ReactLink} to="/auth/register " color={'#37E2D5'}>
+                  Sign up
+                </Link>
+              </Text>
             </Stack>
           </Stack>
         </Box>

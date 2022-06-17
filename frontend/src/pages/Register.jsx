@@ -21,16 +21,16 @@ export default function Register() {
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}
     >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Register</Heading>
-        </Stack>
+      <Stack spacing={8} mx={'auto'} minW={'600px'} py={8} px={4}>
         <Box
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
-          p={20}
+          p={16}
         >
+          <Stack align={'flex-start'} mb={8}>
+            <Heading fontSize={'4xl'}>Register</Heading>
+          </Stack>
           <Stack spacing={4}>
             <FormControl id="namaLengkap">
               <FormLabel>Nama Lengkap</FormLabel>
