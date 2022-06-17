@@ -13,6 +13,7 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
+import { Link as ReactLink } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Outlet } from 'react-router-dom';
 
@@ -72,13 +73,13 @@ export default function Header() {
               <DesktopNav />
             </Flex>
             <Button
-              as={'a'}
+              as={ReactLink}
               fontSize={'sm'}
               fontWeight={400}
               variant={'solid'}
               bg={'#36435A'}
               color={'white'}
-              href={'#'}
+              to={'auth/login'}
             >
               Sign In
             </Button>
