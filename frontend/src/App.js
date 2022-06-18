@@ -1,17 +1,18 @@
-import { Container, Button, Box, Image, Heading, Text } from '@chakra-ui/react';
-import Navbar from './component/Navbar';
-import Login from './component/Login'
-import Register from './component/Register'
-import LandingPage from './component/Landing-page';
+import LandingPage from './pages/Landing-page';
+import { Routes, Route } from 'react-router-dom';
+import Header from './component/Header';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   return (
-    <>
-      {/* <Navbar /> */}
-      {/* <Login /> */}
-      <Register />
-      {/* <LandingPage /> */}
-    </>
+    <Routes>
+      <Route path="/" element={<Header />}>
+        <Route index element={<LandingPage />} />
+      </Route>
+      <Route path="/auth/login" element={<Login />} />
+      <Route path="/auth/register" element={<Register />} />
+    </Routes>
   );
 }
 
