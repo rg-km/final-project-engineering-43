@@ -14,8 +14,16 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
+import Forminput from '../component/Forminput';
+import useFormHook from '../hooks/useFormHook';
 
 export default function Login() {
+  const { onChange, handleSubmit } = useFormHook();
+
+  const onSubmit = (value) => {
+    console.log(value);
+  };
+
   return (
     <Flex
       minH={'100vh'}
@@ -23,7 +31,7 @@ export default function Login() {
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}
     >
-      <Stack mx={'auto'} minW={'600px'} py={8} px={4}>
+      <Stack mx={'auto'} maxW={'600px'} w={'100%'} py={8} px={4}>
         <Box
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
@@ -33,15 +41,19 @@ export default function Login() {
           <VStack align={'flex-start'} mb={8}>
             <Heading fontSize={'4xl'}>Log in</Heading>
           </VStack>
-          <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
+          <Stack spacing={4} as="form" onSubmit={handleSubmit(onSubmit)}>
+            <Forminput
+              id="email"
+              label="Email"
+              type="email"
+              onChange={onChange('email')}
+            />
+            <Forminput
+              id="password"
+              label="Password"
+              type="password"
+              onChange={onChange('password')}
+            />
             <Stack spacing={10}>
               <Stack
                 direction={{ base: 'column', sm: 'row' }}
@@ -57,6 +69,7 @@ export default function Login() {
                 _hover={{
                   bg: '#8C8E93',
                 }}
+                type="submit"
               >
                 Log in
               </Button>

@@ -11,9 +11,17 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import useFormHook from '../hooks/useFormHook';
 import { Link as ReactLink } from 'react-router-dom';
+import Forminput from '../component/Forminput';
 
 export default function Register() {
+  const { onChange, handleSubmit } = useFormHook();
+
+  const onSubmit = (value) => {
+    console.log(value);
+  };
+
   return (
     <Flex
       minH={'100vh'}
@@ -21,7 +29,7 @@ export default function Register() {
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}
     >
-      <Stack spacing={8} mx={'auto'} minW={'600px'} py={8} px={4}>
+      <Stack spacing={8} mx={'auto'} maxW={'600px'} w={'100%'} py={8} px={4}>
         <Box
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
@@ -31,25 +39,31 @@ export default function Register() {
           <Stack align={'flex-start'} mb={8}>
             <Heading fontSize={'4xl'}>Register</Heading>
           </Stack>
-          <Stack spacing={4}>
-            <FormControl id="namaLengkap">
-              <FormLabel>Nama Lengkap</FormLabel>
-              <Input type="text" />
-            </FormControl>
-            <FormControl id="email">
-              <FormLabel>Alamat Email</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <FormControl id="confirmPassword">
-              <FormLabel>Konfirmasi Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-
-            <Stack></Stack>
+          <Stack spacing={4} as="form" onSubmit={handleSubmit(onSubmit)}>
+            <Forminput
+              id="username"
+              label="Username"
+              type="text"
+              onChange={onChange('username')}
+            />
+            <Forminput
+              id="email"
+              type="email"
+              label="Email Address"
+              onChange={onChange('email')}
+            />
+            <Forminput
+              id="password"
+              type="password"
+              label="Password"
+              onChange={onChange('password')}
+            />
+            <Forminput
+              id="confirmPassword"
+              type="password"
+              label="Konfirmasi Password"
+              onChange={onChange('confirmPassword')}
+            />
             <Stack pt={0}>
               <Text align={'center'}>
                 Sudah punya akun ?
@@ -65,6 +79,7 @@ export default function Register() {
               _hover={{
                 bg: '#8C8E93',
               }}
+              type="submit"
             >
               Register
             </Button>
