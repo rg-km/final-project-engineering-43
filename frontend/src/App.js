@@ -4,6 +4,7 @@ import Header from './component/Header';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Maintener from './pages/Maintener-dashboard';
+import Teacher from './pages/Teacher-dashboard';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
         <Route path="/dashboard/maintener" element={<Maintener />} />
+        <Route path="/dashboard/teacher" element={<Teacher />} />
       </Route>
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/register" element={<Register />} />
