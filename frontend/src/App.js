@@ -11,8 +11,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
-        <Route path="/dashboard/maintener" element={<Maintener />} />
-        <Route path="/dashboard/teacher" element={<Teacher />} />
+        <Route path="dashboard">
+          <Route path="maintener" element={<Maintener />} />
+          <Route path="teacher" element={<Teacher />} />
+        </Route>
       </Route>
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/register" element={<Register />} />
