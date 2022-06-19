@@ -4,23 +4,19 @@ import {
   Flex,
   Link,
   Table,
-  TableCaption,
   TableContainer,
   Tbody,
   Td,
   Text,
-  Tfoot,
   Th,
   Thead,
   Tr,
 } from '@chakra-ui/react';
 import Footer from '../component/Footer';
-import Header from '../component/Header';
 
 export default function teacher() {
   return (
     <>
-      <Header />
       <Text ml="40px" mt="90px" fontSize="24px">
         Teacher Dashboard
       </Text>
@@ -108,8 +104,8 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10}>Edit</Button>
-        <Button>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
+        <Button bgColor={'white'} color={'red'}>Delete</Button>
       </Flex>
     ),
   },
@@ -120,8 +116,8 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10}>Edit</Button>
-        <Button>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
+        <Button bgColor={'white'} color={'red'}>Delete</Button>
       </Flex>
     ),
   },
@@ -132,8 +128,8 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10}>Edit</Button>
-        <Button>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
+        <Button bgColor={'white'} color={'red'}>Delete</Button>
       </Flex>
     ),
   },
@@ -144,8 +140,8 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10}>Edit</Button>
-        <Button>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
+        <Button bgColor={'white'} color={'red'}>Delete</Button>
       </Flex>
     ),
   },
