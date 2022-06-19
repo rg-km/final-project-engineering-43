@@ -32,7 +32,7 @@ export default function Maintener (){
                     <Text fontSize="20px">Materi</Text>
                     <Text ml={10} fontSize="20px" as='u'><Link>Perubahan Materi</Link></Text>
                 </Flex>
-                <TableContainer width="75%" ml="168px" mt="20px">
+                <TableContainer width="75%" ml="160px" mt="20px">
                 <Table variant='simple'>
                     <Thead>
                         <Tr>
@@ -42,31 +42,15 @@ export default function Maintener (){
                         </Tr>
                     </Thead>
                     <Tbody>
-                        <Tr>
-                            <Td>1</Td>
-                            <Td>Persamaan 2 variable</Td>
-                            <Td color="#37E2D5"><Link>Detail</Link></Td>
-                        </Tr>
-                        <Tr>
-                            <Td>2</Td>
-                            <Td>Klasifikasi virus</Td>
-                            <Td color="#37E2D5"><Link>Detail</Link></Td>
-                        </Tr>
-                        <Tr>
-                            <Td>3</Td>
-                            <Td>jenis - jenis batuan</Td>
-                            <Td color="#37E2D5"><Link>Detail</Link></Td>
-                        </Tr>
-                        <Tr>
-                            <Td>4</Td>
-                            <Td>Parasitisme</Td>
-                            <Td color="#37E2D5"><Link>Detail</Link></Td>
-                        </Tr>
-                        <Tr>
-                            <Td>5</Td>
-                            <Td>Aljabar Linear</Td>
-                            <Td color="#37E2D5"><Link>Detail</Link></Td>
-                        </Tr>
+                        {itemTable.map((item)=>{
+                            return(
+                                <Tr>
+                                    <Td>{item.no}</Td>
+                                    <Td>{item.perubahan}</Td>
+                                    <Td><Link color={'teal.300'}>{item.action}</Link></Td>
+                                </Tr>
+                            )
+                        })}
                     </Tbody>
                 </Table>
             </TableContainer>
@@ -75,3 +59,16 @@ export default function Maintener (){
         </Box>
     )
 }
+
+const itemTable = [
+    {
+        no: 1,
+        perubahan: 'Persamaan 2 variable',
+        action: 'Detail',
+    },
+    {
+        no: 2,
+        perubahan: 'Kerangka Manusia',
+        action: 'Detail',
+    }
+]
