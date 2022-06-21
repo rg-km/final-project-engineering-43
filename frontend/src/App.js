@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Maintener from './pages/Maintener-dashboard';
 import Teacher from './pages/Teacher-dashboard';
+import ListRoadmap from './pages/List-roadmap';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <Route path="dashboard">
           <Route path="maintener" element={<Maintener />} />
           <Route path="teacher" element={<Teacher />} />
+        </Route>
+        <Route path="roadmap">
+          <Route path="list" element={<ListRoadmap />} />
         </Route>
       </Route>
       <Route path="/auth/login" element={<Login />} />
