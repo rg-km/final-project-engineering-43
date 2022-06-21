@@ -32,7 +32,7 @@ export default function detailRoadmap() {
         </Text>
         <Flex ml="168px" mt="27px">
           <Text fontSize="20px">
-            <Link>Course Lainnya</Link>
+            <Link>List Roadmap</Link>
           </Text>
         </Flex>
         <TableContainer width="75%" ml="160px" mt="20px">
