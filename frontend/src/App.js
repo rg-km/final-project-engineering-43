@@ -6,6 +6,8 @@ import Register from './pages/Register';
 import Maintener from './pages/Maintener-dashboard';
 import Teacher from './pages/Teacher-dashboard';
 import AddMateri from './pages/Form-addMateri';
+import ListRoadmap from './pages/List-roadmap';
+import DetailRoadmap from './pages/Detail-roadmap';
 
 function App() {
   return (
@@ -16,6 +18,10 @@ function App() {
         <Route path="dashboard">
           <Route path="maintener" element={<Maintener />} />
           <Route path="teacher" element={<Teacher />} />
+        </Route>
+        <Route path="roadmap">
+          <Route path="list" element={<ListRoadmap />} />
+          <Route path="detail" element={<DetailRoadmap />} />
         </Route>
       </Route>
       <Route path="/auth/login" element={<Login />} />
