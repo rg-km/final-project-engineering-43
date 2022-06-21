@@ -88,5 +88,5 @@ const itemTable = [
     title: "Teknisi Robot",
     status: "coming soon",
     action: "Detail",
-  }
+  },
 ];
