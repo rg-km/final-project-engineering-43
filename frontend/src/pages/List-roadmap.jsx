@@ -4,7 +4,6 @@ import Footer from "./../component/Footer";
 import {
   Box,
   Text,
-  Flex,
   Link,
   Table,
   Thead,
@@ -28,17 +27,9 @@ export default function listRoadmap() {
         height="710px"
       >
         <Text ml="168px" mt="70px" fontSize="24px" fontWeight="bold">
-          Course
+          Course Roadmap
         </Text>
-        <Flex ml="168px" mt="27px">
-          <Text fontSize="20px">
-            <Link>Materi</Link>
-          </Text>
-          <Text ml={10} fontSize="20px">
-            <Link>Perubahan Materi</Link>
-          </Text>
-        </Flex>
-        <TableContainer width="75%" ml="160px" mt="20px">
+        <TableContainer width="75%" ml="160px" mt="50px">
           <Table variant="simple">
             <Thead>
               <Tr>
