@@ -5,9 +5,11 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Maintener from './pages/Maintener-dashboard';
 import Teacher from './pages/Teacher-dashboard';
+import AddMateri from './pages/Form-addMateri';
 
 function App() {
   return (
+    // <AddMateri/> --> ini dimasukin mana yaa wkwk
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
