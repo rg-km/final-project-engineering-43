@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Maintener from './pages/Maintener-dashboard';
 import Teacher from './pages/Teacher-dashboard';
 import ListRoadmap from './pages/List-roadmap';
+import DetailRoadmap from './pages/Detail-roadmap';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Route>
         <Route path="roadmap">
           <Route path="list" element={<ListRoadmap />} />
+          <Route path="detail" element={<DetailRoadmap />} />
         </Route>
       </Route>
       <Route path="/auth/login" element={<Login />} />
