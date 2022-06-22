@@ -8,8 +8,6 @@ import {
 import Footer from '../component/Footer';
 import Header from '../component/Header';
 
-// bentar vina cape ngodinggg wkwkwk, nanti dilanjuttttt
-
 export default function formAdd() {
   return (
     <>
