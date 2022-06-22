@@ -1,11 +1,11 @@
-import { Box, Text, Flex, Button } from '@chakra-ui/react'
-import Footer from '../component/Footer'
-import DiffViewer from '../component/DiffViewer'
+import { Box, Text, Flex, Button } from "@chakra-ui/react";
+import Footer from "../component/Footer";
+import DiffViewer from "../component/DiffViewer";
 
-export default function detailMaintener(){
-    return(
-        <Box>
-            <Box
+export default function detailMaintener() {
+  return (
+    <Box>
+      <Box
         width="100%"
         height="100vh"
         display="block"
@@ -17,11 +17,17 @@ export default function detailMaintener(){
           <Text p="20px" mt="50px" fontSize="24" fontWeight="bold">
             Perubahan Materi
           </Text>
-          <Box width="75%" mt="50px" >
+          <Box width="75%" mt="50px">
             <DiffViewer />
           </Box>
         </Flex>
-        <Flex justifyContent="flex-end" alignItems="center" p="20px" mb={100} mt={50}>
+        <Flex
+          justifyContent="flex-end"
+          alignItems="center"
+          p="20px"
+          mb={100}
+          mt={50}
+        >
           <Button
             variant="solid"
             size="md"
@@ -48,7 +54,7 @@ export default function detailMaintener(){
           </Button>
         </Flex>
       </Box>
-            <Footer />
-        </Box>
-    )
+      <Footer />
+    </Box>
+  );
 }
