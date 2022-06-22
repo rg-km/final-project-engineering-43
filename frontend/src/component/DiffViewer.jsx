@@ -11,5 +11,12 @@ export default function DiffViewer(){
     )
 }
 
-const materiLama=``;
-const materiBaru=``;
+const materiLama=`
+Persamaan 2 Variable
+sebuah bentuk relasi sama dengan pada bentuk aljabar yang memiliki dua variabel dan keduanya berpangkat satu.
+`;
+const materiBaru=`
+Persamaan 2 Variable
+sebuah bentuk relasi sama dengan pada bentuk aljabar yang memiliki dua variabel dan keduanya berpangkat satu.
+Dikatakan Persamaan Linear karena pada bentuk persamaan ini jika digambarkan dalam bentuk grafik, maka akan terbentuk sebuah grafik garis lurus (linear).
+`;
