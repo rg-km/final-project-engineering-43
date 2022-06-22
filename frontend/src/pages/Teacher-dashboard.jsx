@@ -13,6 +13,7 @@ import {
   Tr,
 } from '@chakra-ui/react';
 import Footer from '../component/Footer';
+import { Link as ReactLink } from 'react-router-dom';
 
 export default function teacher() {
   return (
@@ -61,6 +62,8 @@ export default function teacher() {
             bgColor="#36435A"
             colorScheme="teal"
             borderRadius={6}
+            as={ReactLink}
+            to="/dashboard/teacher/tambah-materi"
           >
             Tambah Materi
           </Button>
@@ -104,8 +107,12 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
-        <Button bgColor={'white'} color={'red'}>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>
+          Edit
+        </Button>
+        <Button bgColor={'white'} color={'red'}>
+          Delete
+        </Button>
       </Flex>
     ),
   },
@@ -116,8 +123,12 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
-        <Button bgColor={'white'} color={'red'}>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>
+          Edit
+        </Button>
+        <Button bgColor={'white'} color={'red'}>
+          Delete
+        </Button>
       </Flex>
     ),
   },
@@ -128,8 +139,12 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
-        <Button bgColor={'white'} color={'red'}>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>
+          Edit
+        </Button>
+        <Button bgColor={'white'} color={'red'}>
+          Delete
+        </Button>
       </Flex>
     ),
   },
@@ -140,8 +155,12 @@ const TableItem = [
     status: 'Draft',
     action: (
       <Flex>
-        <Button mr={10} bgColor={'white'} color={'teal.300'}>Edit</Button>
-        <Button bgColor={'white'} color={'red'}>Delete</Button>
+        <Button mr={10} bgColor={'white'} color={'teal.300'}>
+          Edit
+        </Button>
+        <Button bgColor={'white'} color={'red'}>
+          Delete
+        </Button>
       </Flex>
     ),
   },

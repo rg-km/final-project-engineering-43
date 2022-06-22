@@ -167,7 +167,7 @@ const MobileNavItem = ({ label, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Home',
-    href: '#',
+    href: '/',
   },
   {
     label: 'Career path',

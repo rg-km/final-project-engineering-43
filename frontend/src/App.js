@@ -5,13 +5,14 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Maintener from './pages/Maintener-dashboard';
 import Teacher from './pages/Teacher-dashboard';
-import Detail from "./pages/Detail-course";
-import ListCourse from "./pages/List-course";
+import Detail from './pages/Detail-course';
+import ListCourse from './pages/List-course';
 import AddMateri from './pages/Form-addMateri';
 // import AddProfesi from './pages/Form-addProfesi'
 import ListRoadmap from './pages/List-roadmap';
 import DetailRoadmap from './pages/Detail-roadmap';
 import DetailMaintener from './pages/Detail-maintener';
+import FormAddProfesi from './pages/Form-addProfesi';
 
 function App() {
   return (
@@ -19,16 +20,19 @@ function App() {
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
         <Route path="dashboard">
-          <Route path="maintener" element={<Maintener />}/>
-          <Route path='detail' element={<DetailMaintener/>}/>
-          <Route path="teacher" element={<Teacher />} />
+          <Route path="maintener" element={<Maintener />} />
+          <Route path="teacher">
+            <Route index element={<Teacher />} />
+            <Route path="tambah-materi" element={<AddMateri />} />
+          </Route>
         </Route>
         <Route path="roadmap">
+          <Route path="tambah" element={<FormAddProfesi />} />
           <Route path="list" element={<ListRoadmap />} />
           <Route path="detail" element={<DetailRoadmap />} />
         </Route>
-        <Route path='form'>
-          <Route path='addMateri' element={<AddMateri />}/>
+        <Route path="form">
+          <Route path="addMateri" element={<AddMateri />} />
           {/* <Route path='addProfesi' element={<AddProfesi />}/> */}
         </Route>
       </Route>

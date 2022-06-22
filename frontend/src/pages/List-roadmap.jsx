@@ -28,7 +28,7 @@ export default function listRoadmap() {
         height="710px"
       >
         <Text ml="168px" mt="70px" fontSize="24px" fontWeight="bold">
-          Course
+          Roadmap
         </Text>
         <Flex ml="168px" mt="27px">
           <Text fontSize="20px">
