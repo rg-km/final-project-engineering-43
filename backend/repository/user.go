@@ -20,7 +20,7 @@ func (u *UserRepository) Register(User) (*User, error) {
 		SELECT * FROM user
 		WHERE username = ? AND password = ?
 	`
-	err := u.db.QueryRow(sqlStatement, username, password).Scan(&user.Username)
+	err := u.db.QueryRow(sqlStatement, user.Username, user.Password).Scan(&user.Username)
 
 	if err != nil {
 		return nil, errors.New("Login Failed")
