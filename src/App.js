@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Maintener from "./pages/Maintener-dashboard";
 import Teacher from "./pages/Teacher-dashboard";
 import Detail from "./pages/Detail-course";
+import ListCourse from "./pages/List-course";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/register" element={<Register />} />
       <Route path="/course" element={<Detail />} />
+      <Route path="/listcourse" element={<ListCourse />} />
     </Routes>
   );
 }
