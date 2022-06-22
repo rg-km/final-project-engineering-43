@@ -5,6 +5,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Maintener from './pages/Maintener-dashboard';
 import Teacher from './pages/Teacher-dashboard';
+import Detail from "./pages/Detail-course";
+import ListCourse from "./pages/List-course";
 import AddMateri from './pages/Form-addMateri';
 // import AddProfesi from './pages/Form-addProfesi'
 import ListRoadmap from './pages/List-roadmap';
@@ -32,6 +34,8 @@ function App() {
       </Route>
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/register" element={<Register />} />
+      <Route path="/course" element={<Detail />} />
+      <Route path="/listcourse" element={<ListCourse />} />
     </Routes>
   );
 }
