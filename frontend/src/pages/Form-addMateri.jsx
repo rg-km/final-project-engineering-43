@@ -12,7 +12,6 @@ import useFormHook from "../hooks/useFormHook";
 
 export default function AddMateri() {
   const { onChange, handleSubmit } = useFormHook();
-
   const onSubmit = (value) => {
     console.log(value);
   };
