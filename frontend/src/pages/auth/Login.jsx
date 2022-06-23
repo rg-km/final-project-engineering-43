@@ -11,8 +11,8 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
-import Forminput from '../component/Forminput';
-import useFormHook from '../hooks/useFormHook';
+import Forminput from '../../component/Forminput';
+import useFormHook from '../../hooks/useFormHook';
 
 export default function Login() {
   const { onChange, handleSubmit } = useFormHook();

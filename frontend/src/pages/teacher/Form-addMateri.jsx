@@ -6,11 +6,17 @@ import {
   Button,
   useColorModeValue,
 } from '@chakra-ui/react';
-import Footer from '../component/Footer';
-import Forminput from '../component/Forminput';
-import useFormHook from '../hooks/useFormHook';
+import Footer from '../../component/Footer';
+import Forminput from '../../component/FormInputFile';
+import useFormHook from '../../hooks/useFormHook';
 
-export default function AddMateri() {
+/**
+ *
+ * Halaman add materi
+ * Halaman ini bisa di akses dari dashboard, halaman ini digunakan untuk menambahkan materi berdasarkan profesi
+ */
+
+export default function FormAddMateri() {
   const { onChange, handleSubmit } = useFormHook();
   const onSubmit = (value) => {
     console.log(value);

@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../component/Footer';
-import bg from '../assets/bg.png';
-import CardCourse from '../component/Card-course';
+import Footer from '../../component/Footer';
+import bg from '../../assets/bg.png';
+import CardCourse from '../../component/Card-course';
 import { Box, Text, Button } from '@chakra-ui/react';
 
 export default function Landing() {

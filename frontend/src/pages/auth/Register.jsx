@@ -8,9 +8,9 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-import useFormHook from '../hooks/useFormHook';
+import useFormHook from '../../hooks/useFormHook';
 import { Link as ReactLink } from 'react-router-dom';
-import Forminput from '../component/Forminput';
+import Forminput from '../../component/Forminput';
 
 export default function Register() {
   const { onChange, handleSubmit } = useFormHook();

@@ -1,5 +1,5 @@
-import React from "react";
-import Footer from "./../component/Footer";
+import React from 'react';
+import Footer from '../../component/Footer';
 
 import {
   Box,
@@ -13,7 +13,11 @@ import {
   Th,
   Td,
   TableContainer,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
+/**
+ * Halaman maintener
+ * Halaman ini diguanakan untuk mengelola setiap perubahan yang ada
+ */
 
 export default function Maintener() {
   return (
@@ -54,7 +58,7 @@ export default function Maintener() {
                     <Td>{item.no}</Td>
                     <Td>{item.perubahan}</Td>
                     <Td>
-                      <Link color={"teal.300"}>{item.action}</Link>
+                      <Link color={'teal.300'}>{item.action}</Link>
                     </Td>
                   </Tr>
                 );
@@ -71,12 +75,12 @@ export default function Maintener() {
 const itemTable = [
   {
     no: 1,
-    perubahan: "Persamaan 2 variable",
-    action: "Detail",
+    perubahan: 'Persamaan 2 variable',
+    action: 'Detail',
   },
   {
     no: 2,
-    perubahan: "Kerangka Manusia",
-    action: "Detail",
+    perubahan: 'Kerangka Manusia',
+    action: 'Detail',
   },
 ];

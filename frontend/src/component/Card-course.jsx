@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Image, Text, Flex, Link } from '@chakra-ui/react';
+import { Link as ReactLink } from 'react-router-dom';
 
 export default function Card() {
   return (
@@ -34,7 +35,7 @@ export default function Card() {
               {cardItem.desc}
             </Text>
             <Text textAlign="right" mr={21} color="#37E2D5">
-              <Link te href="#">
+              <Link as={ReactLink} to="/12/course">
                 pelajari lanjut
               </Link>
             </Text>

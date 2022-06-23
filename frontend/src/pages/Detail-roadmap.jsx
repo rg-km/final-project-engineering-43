@@ -1,5 +1,5 @@
-import React from "react";
-import Footer from "./../component/Footer";
+import React from 'react';
+import Footer from './../component/Footer';
 
 import {
   Box,
@@ -13,7 +13,12 @@ import {
   Th,
   Td,
   TableContainer,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
+
+/**
+ *
+ * Halaman detail setiap path materi yg ada di dashboard, halaman ini nisa di akses dri dasboard
+ */
 
 export default function detailRoadmap() {
   return (
@@ -53,7 +58,7 @@ export default function detailRoadmap() {
                     <Td>{item.materi}</Td>
                     <Td>{item.status}</Td>
                     <Td>
-                      <Link color={"teal.300"}>{item.action}</Link>
+                      <Link color={'teal.300'}>{item.action}</Link>
                     </Td>
                   </Tr>
                 );
@@ -70,20 +75,20 @@ export default function detailRoadmap() {
 const itemTable = [
   {
     no: 1,
-    materi: "Pengenalan Profesi Dokter",
-    status: "published",
-    action: "Detail",
+    materi: 'Pengenalan Profesi Dokter',
+    status: 'published',
+    action: 'Detail',
   },
   {
     no: 2,
-    materi: "Etika Medis",
-    status: "published",
-    action: "Detail",
+    materi: 'Etika Medis',
+    status: 'published',
+    action: 'Detail',
   },
   {
     no: 3,
-    materi: "Genetika",
-    status: "coming soon",
-    action: "Detail",
+    materi: 'Genetika',
+    status: 'coming soon',
+    action: 'Detail',
   },
 ];

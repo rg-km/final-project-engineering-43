@@ -1,7 +1,12 @@
-import { Box, Text, Flex, Button } from "@chakra-ui/react";
-import Footer from "../component/Footer";
-import DiffViewer from "../component/DiffViewer";
+import { Box, Text, Flex, Button } from '@chakra-ui/react';
+import Footer from '../component/Footer';
+import DiffViewer from '../component/DiffViewer';
 
+// HALAMAN DETAIL PERUBAHAN MATERI
+/**
+ * Halaman ini akan di akses oleh pengguna dgn role mainteneer yg akan bisa mengkasesnya
+ *
+ */
 export default function detailMaintener() {
   return (
     <Box>

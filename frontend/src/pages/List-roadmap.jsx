@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from './../component/Footer';
+import Footer from '../component/Footer';
 
 import {
   Box,
@@ -14,6 +14,11 @@ import {
   Td,
   TableContainer,
 } from '@chakra-ui/react';
+
+/**
+ * Halaman dashboard untuk mengelola roadmap
+ *
+ */
 
 export default function listRoadmap() {
   return (

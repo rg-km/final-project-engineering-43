@@ -1,8 +1,6 @@
-import React from "react";
-import Footer from "../component/Footer";
-import Header from "../component/Header";
-import { Stack, HStack, VStack } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import React from 'react';
+import Footer from '../../component/Footer';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
   Box,
   Text,
@@ -11,10 +9,15 @@ import {
   GridItem,
   Heading,
   Link,
-  StackDivider,
-} from "@chakra-ui/react";
+  Stack,
+} from '@chakra-ui/react';
 
-export default function Detail() {
+/**
+ * Halaman detail course
+ * Halaman ini bisa di akses pengguna biasa dari halaman courses
+ */
+
+export default function DetailCourse() {
   function Feature({ title, desc, filldesc, ...rest }) {
     return (
       <Box p={5} shadow="md" borderWidth="1px" {...rest} borderRadius="12px">
@@ -37,7 +40,6 @@ export default function Detail() {
   }
   return (
     <>
-      <Header />
       <Box
         marginLeft="2%"
         marginRight="4%"
@@ -51,13 +53,13 @@ export default function Detail() {
           templateAreas={`"header header"
                   "nav main"
                   "nav footer"`}
-          gridTemplateRows={"50px 1fr 30px"}
+          gridTemplateRows={'50px 1fr 30px'}
           h="800px"
           gap="1"
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem pl="3" area={"nav"} pr="10" width="250px">
+          <GridItem pl="3" area={'nav'} pr="10" width="250px">
             <Box>
               <Text mt={2} fontSize="30">
                 Guru
@@ -86,7 +88,7 @@ export default function Detail() {
             </Box>
           </GridItem>
 
-          <GridItem pl="2" area={"main"} mt={20}>
+          <GridItem pl="2" area={'main'} mt={20}>
             <Box width="100%" height="100%">
               <Stack spacing={8} direction="row">
                 <Feature
@@ -97,7 +99,7 @@ export default function Detail() {
               </Stack>
             </Box>
           </GridItem>
-          <GridItem pr="10" area={"footer"} colStart={3} colEnd={6}>
+          <GridItem pr="10" area={'footer'} colStart={3} colEnd={6}>
             <Link href="https://chakra-ui.com" isExternal mr="2">
               Chakra Design system <ExternalLinkIcon mx="2px" />
             </Link>

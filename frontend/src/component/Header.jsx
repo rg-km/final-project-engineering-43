@@ -173,14 +173,18 @@ const NAV_ITEMS = [
   },
   {
     label: 'Career path',
-    href: '#',
+    href: '/path',
   },
   {
     label: 'About Us',
     href: '#',
   },
   {
-    label: 'Dashboard',
-    href: '/',
+    label: 'Teacher',
+    href: '/dashboard/teacher',
+  },
+  {
+    label: 'Maintener',
+    href: '/dashboard/maintener',
   },
 ];

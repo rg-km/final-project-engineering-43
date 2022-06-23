@@ -1,4 +1,4 @@
-import ReactDiffViewer from "react-diff-viewer";
+import ReactDiffViewer from 'react-diff-viewer';
 
 export default function DiffViewer() {
   return (
