@@ -24,10 +24,10 @@ function App() {
           <Route path="teacher">
             <Route index element={<Teacher />} />
             <Route path="tambah-materi" element={<AddMateri />} />
+            <Route path="tambah-profesi" element={<FormAddProfesi />} />
           </Route>
         </Route>
         <Route path="roadmap">
-          <Route path="tambah" element={<FormAddProfesi />} />
           <Route path="list" element={<ListRoadmap />} />
           <Route path="detail" element={<DetailRoadmap />} />
         </Route>
