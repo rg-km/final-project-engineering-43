@@ -57,6 +57,8 @@ export default function Header() {
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
               color={'teal.300'}
+              as={ReactLink}
+              to="/"
             >
               Jendela
             </Text>
@@ -174,11 +176,11 @@ const NAV_ITEMS = [
     href: '#',
   },
   {
-    label: 'Cara kontribusi',
+    label: 'About Us',
     href: '#',
   },
   {
-    label: 'Menjadi maintener',
-    href: '#',
+    label: 'Dashboard',
+    href: '/',
   },
 ];
