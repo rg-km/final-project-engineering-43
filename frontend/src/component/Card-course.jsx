@@ -1,51 +1,61 @@
 import React from 'react';
-import { Box, Image, Text, Flex, Link } from '@chakra-ui/react';
+import {
+  Box,
+  Image,
+  Text,
+  Flex,
+  Link,
+  Container,
+  Heading,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 
 export default function Card() {
+  const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
+
   return (
-    <Box height="516px" width="100%" mb="117px">
-      <Text ml="40px" mt="94px" fontSize="24px">
+    <Container mb="16" maxW="container.xl">
+      <Text mt="94px" fontSize="24px">
         Rekomendasi
       </Text>
-      <Flex mt="50px">
+      <Flex mt="50px" flexDirection={flexDirection} gap="8" wrap="wrap">
         {CardItem.map((cardItem) => (
           <Box
-            width="334px"
-            height="430px"
-            ml="40px"
-            pt="20px"
-            pl="20px"
-            pr="20px"
-            pb="20px"
+            width="100%"
+            maxWidth="280px"
+            minHeight="400px"
             border="2px"
             borderColor="#F5F5F5"
             borderRadius="12px"
           >
             <Image
-              height="218px"
-              width="294px"
-              borderRadius={20}
+              borderRadius={8}
+              width="100%"
+              height={200}
+              fit="cover"
               src={cardItem.image}
             />
-            <Text mt="19px" mb="5px" fontWeight="medium">
-              {cardItem.profesi}
-            </Text>
-            <Text mb="8px" textAlign="left">
-              {cardItem.desc}
-            </Text>
-            <Text textAlign="right" mr={21} color="#37E2D5">
-              <Link as={ReactLink} to="/12/course">
-                pelajari lanjut
-              </Link>
-            </Text>
+            <Box p="8">
+              <Heading as="h2" mb="4" fontWeight="medium">
+                {cardItem.profesi}
+              </Heading>
+              <Text mb="8px" textAlign="left" color="gray.500" noOfLines={2}>
+                {cardItem.desc}
+              </Text>
+              <Text textAlign="right" mr={21} color="#37E2D5">
+                <Link as={ReactLink} to="/12/course">
+                  pelajari lanjut
+                </Link>
+              </Text>
+            </Box>
           </Box>
         ))}
       </Flex>
       <Text textAlign="right" mr={39} mt={25} color="#464646">
         <Link href="#">lihat selengkapnya</Link>
       </Text>
-    </Box>
+    </Container>
   );
 }
 
