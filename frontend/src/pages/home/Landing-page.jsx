@@ -50,7 +50,9 @@ export default function Landing() {
           </Button>
         </Container>
       </Box>
-      <CardCourse />
+      <Container maxW="container.xl" my="16">
+        <CardCourse />
+      </Container>
       <Footer />
     </Box>
   );
