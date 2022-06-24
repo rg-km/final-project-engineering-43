@@ -5,7 +5,6 @@ import {
   Text,
   Flex,
   Link,
-  Container,
   Heading,
   useBreakpointValue,
 } from '@chakra-ui/react';
@@ -13,15 +12,18 @@ import { Link as ReactLink } from 'react-router-dom';
 
 export default function Card() {
   const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
+  const maxWidth = useBreakpointValue({ base: '400px', md: '280px' });
 
   return (
     <>
-      <Text fontSize="24px">Rekomendasi</Text>
-      <Flex mt="50px" flexDirection={flexDirection} gap="8" wrap="wrap">
+      <Text fontSize="24px" mb={8}>
+        Rekomendasi
+      </Text>
+      <Flex flexDirection={flexDirection} gap="8" wrap="wrap">
         {CardItem.map((cardItem) => (
           <Box
             width="100%"
-            maxWidth="280px"
+            maxWidth={maxWidth}
             minHeight="400px"
             border="2px"
             borderColor="#F5F5F5"

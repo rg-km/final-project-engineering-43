@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../../component/Footer';
 import { SearchIcon } from '@chakra-ui/icons';
-import { Box, Text, Input } from '@chakra-ui/react';
+import { Box, Text, Input, Container, Heading } from '@chakra-ui/react';
 import Card from '../../component/Card-course';
 
 /**
@@ -12,25 +12,15 @@ import Card from '../../component/Card-course';
 export default function Roadmap() {
   return (
     <>
-      <Box>
-        <Text ml="40px" mt="94px" fontSize="24px" mb="10px">
-          Courses
-        </Text>
-        <Box pl="10">
-          <Input placeholder="Cari Profesi" width="10%" />{' '}
-          <SearchIcon type="search" />
+      <Container maxW="container.xl" my={16}>
+        <Box mb={16}>
+          <Heading as="h1" mb="4">
+            Roadmap
+          </Heading>
+          <Input placeholder="Kamu mau jadi apa ?" />
         </Box>
-      </Box>
-      <Box
-        marginLeft="0%"
-        marginRight="2%"
-        height="50%"
-        display="flex"
-        justifyContent="center"
-        pb={10}
-      >
         <Card />
-      </Box>
+      </Container>
       <Footer />
     </>
   );
