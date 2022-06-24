@@ -15,10 +15,8 @@ export default function Card() {
   const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
 
   return (
-    <Container mb="16" maxW="container.xl">
-      <Text mt="94px" fontSize="24px">
-        Rekomendasi
-      </Text>
+    <>
+      <Text fontSize="24px">Rekomendasi</Text>
       <Flex mt="50px" flexDirection={flexDirection} gap="8" wrap="wrap">
         {CardItem.map((cardItem) => (
           <Box
@@ -30,14 +28,15 @@ export default function Card() {
             borderRadius="12px"
           >
             <Image
-              borderRadius={8}
+              borderTopEndRadius={8}
+              borderTopStartRadius={8}
               width="100%"
               height={200}
               fit="cover"
               src={cardItem.image}
             />
             <Box p="8">
-              <Heading as="h2" mb="4" fontWeight="medium">
+              <Heading as="h2" mb="4" fontSize="2xl" fontWeight="medium">
                 {cardItem.profesi}
               </Heading>
               <Text mb="8px" textAlign="left" color="gray.500" noOfLines={2}>
@@ -55,7 +54,7 @@ export default function Card() {
       <Text textAlign="right" mr={39} mt={25} color="#464646">
         <Link href="#">lihat selengkapnya</Link>
       </Text>
-    </Container>
+    </>
   );
 }
 
