@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './component/Header';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
+import AboutUs from './pages/home/About-us';
 import Maintener from './pages/maintener/Maintener-dashboard';
 import Teacher from './pages/teacher/Teacher-dashboard';
 import Detail from './pages/home/Detail-course';
@@ -18,6 +19,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
+        <Route path="about" element={<AboutUs />} />
         <Route path="dashboard" element={<ProtectedRoute />}>
           <Route path="maintener" element={<Maintener />} />
           <Route path="teacher">
