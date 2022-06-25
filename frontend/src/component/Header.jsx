@@ -13,12 +13,16 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import { Link as ReactLink } from 'react-router-dom';
+import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Outlet } from 'react-router-dom';
+import userStore from '../store/userAuthStore';
 
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
+  const navigate = useNavigate();
+  const user = userStore((state) => state.user);
+  const logout = userStore((state) => state.logout);
 
   return (
     <>
@@ -74,17 +78,33 @@ export default function Header() {
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
             </Flex>
-            <Button
-              as={ReactLink}
-              fontSize={'sm'}
-              fontWeight={400}
-              variant={'solid'}
-              bg={'#36435A'}
-              color={'white'}
-              to={'auth/login'}
-            >
-              Sign In
-            </Button>
+            {user.isLogged ? (
+              <Button
+                onClick={() => {
+                  logout();
+                  navigate('/');
+                }}
+                fontSize={'sm'}
+                fontWeight={400}
+                variant={'solid'}
+                bg={'#36435A'}
+                color={'white'}
+              >
+                Logout
+              </Button>
+            ) : (
+              <Button
+                as={ReactLink}
+                fontSize={'sm'}
+                fontWeight={400}
+                variant={'solid'}
+                bg={'#36435A'}
+                color={'white'}
+                to={'auth/login'}
+              >
+                Sign In
+              </Button>
+            )}
           </Stack>
         </Flex>
 
