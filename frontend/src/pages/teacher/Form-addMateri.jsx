@@ -79,10 +79,6 @@ export default function FormAddMateri() {
                 </Select>
               </FormControl>
               <FormControl>
-                <FormLabel htmlFor="deskripsi">Deskripsi</FormLabel>
-                <Textarea onChange={onChange('deskripsi')} />
-              </FormControl>
-              <FormControl>
                 <FormLabel>Content</FormLabel>
                 <div ref={quillRef} />
               </FormControl>
