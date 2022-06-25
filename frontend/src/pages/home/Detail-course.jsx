@@ -2,14 +2,12 @@ import React from 'react';
 import Footer from '../../component/Footer';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
-  Box,
-  Text,
-  Button,
   Grid,
   GridItem,
   Heading,
   Link,
-  Stack,
+  VStack,
+  Container,
 } from '@chakra-ui/react';
 
 /**
@@ -18,97 +16,47 @@ import {
  */
 
 export default function DetailCourse() {
-  function Feature({ title, desc, filldesc, ...rest }) {
-    return (
-      <Box p={5} shadow="md" borderWidth="1px" {...rest} borderRadius="12px">
-        <Heading fontSize="xl">{title}</Heading>
-        <Text mt={4} fontSize="l">
-          {desc}
-        </Text>
-        <Text mt={5} fontSize="l" marginLeft={10}>
-          <p>{filldesc}</p>
-        </Text>
-      </Box>
-    );
-  }
-  function TableContent({ title }) {
-    return (
-      <Box>
-        <Heading fontSize="l">{title}</Heading>
-      </Box>
-    );
-  }
   return (
     <>
-      <Box
-        marginLeft="2%"
-        marginRight="4%"
-        height="100%"
-        display="flex"
-        alignItems="center"
-        justifyContent="left"
-        pb={10}
-      >
+      <Container maxW="container.xl" mb={24} mt={8}>
+        <Heading as="h1" mb="8">
+          Dokter
+        </Heading>
         <Grid
-          templateAreas={`"header header"
-                  "nav main"
-                  "nav footer"`}
-          gridTemplateRows={'50px 1fr 30px'}
-          h="800px"
-          gap="1"
-          color="blackAlpha.700"
-          fontWeight="bold"
+          gridTemplateColumns={{ base: '1fr', md: '350px 1fr' }}
+          gap={{ base: 4, md: 8 }}
         >
-          <GridItem pl="3" area={'nav'} pr="10" width="250px">
-            <Box>
-              <Text mt={2} fontSize="30">
-                Guru
-              </Text>
-            </Box>
-            <Box>
-              <Text mt={10} fontSize="l">
-                Table Content
-              </Text>
-            </Box>
-            <Box
-              mt="15px"
-              pl="10"
-              display="flex"
-              flexDirection="column"
-              h="50%"
-              w="100%"
-              p="3"
-              borderRadius="12px"
-              boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
-              color="BlackAlpha.700"
+          <GridItem w="100%">
+            <Heading as="h2" fontSize="2xl" fontWeight="medium">
+              Table content
+            </Heading>
+            <VStack
+              alignItems="flex-start"
+              my="4"
+              p="8"
+              bg="gray.50"
+              borderRadius={4}
             >
-              <Stack spacing={8} direction="row">
-                <TableContent title="Kompetensi Sosial" />
-              </Stack>
-            </Box>
+              <Link>Anatomi tubuh</Link>
+              <Link>Bio kimia</Link>
+              <Link>Biologi sel dan molekuler</Link>
+            </VStack>
           </GridItem>
-
-          <GridItem pl="2" area={'main'} mt={20}>
-            <Box width="100%" height="100%">
-              <Stack spacing={8} direction="row">
-                <Feature
-                  title="Save Money"
-                  desc="Kompetensi kepribadian berkaitan dengan karakter guru dan wajib dimiliki agar menjadi teladan bagi para peserta didik. Selain itu, para guru juga harus mampu mendidik para muridnya agar membantu mereka memiliki kepribadian yang baik Terdapat beberapa kepribadian yang harus dimiliki guru antara lain;"
-                  filldesc="Kompetensi kepribadian berkaitan"
-                />
-              </Stack>
-            </Box>
-          </GridItem>
-          <GridItem pr="10" area={'footer'} colStart={3} colEnd={6}>
-            <Link href="https://chakra-ui.com" isExternal mr="2">
-              Chakra Design system <ExternalLinkIcon mx="2px" />
-            </Link>
-            <Button colorScheme="facebook" size="lg">
-              Tanya Jawab
-            </Button>
+          <GridItem
+            w="100%"
+            h="900"
+            borderWidth={2}
+            borderColor="gray.100"
+            p={8}
+            borderRadius={4}
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+            voluptates adipisci maxime animi consectetur iusto in quas dolores
+            pariatur totam enim molestias reprehenderit deserunt sit delectus
+            vel, officia explicabo perferendis?
           </GridItem>
         </Grid>
-      </Box>
+      </Container>
       <Footer />
     </>
   );
