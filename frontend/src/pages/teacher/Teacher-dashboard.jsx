@@ -18,8 +18,8 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import Footer from '../../component/Footer';
-import { Link as ReactLink } from 'react-router-dom';
-import { useState } from 'react';
+import { Link as ReactLink, useSearchParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 /**
  * Halaman Dashboard teacher
@@ -28,6 +28,23 @@ import { useState } from 'react';
 
 export default function Teacher() {
   const [tabIndex, setTabIndex] = useState(0);
+  const [courseId, setCourseId] = useState();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const viewParams = searchParams.get('view');
+    if (viewParams === 'courses') {
+      setTabIndex(1);
+      const idParams = searchParams.get('courses-id');
+      if (idParams) {
+        console.log(idParams);
+        setCourseId(parseInt(idParams));
+      }
+    } else {
+      setCourseId();
+      setTabIndex(0);
+    }
+  }, [courseId, searchParams]);
 
   return (
     <>
@@ -43,8 +60,12 @@ export default function Teacher() {
 
         <Tabs index={tabIndex} onChange={(i) => setTabIndex(i)}>
           <TabList>
-            <Tab>Roadmap</Tab>
-            <Tab>Courses</Tab>
+            <Tab as={ReactLink} to="?view=roadmap">
+              Roadmap
+            </Tab>
+            <Tab as={ReactLink} to="?view=courses">
+              Courses
+            </Tab>
           </TabList>
 
           <TabPanels mt={8}>
@@ -71,6 +92,8 @@ export default function Teacher() {
                               mr={10}
                               bgColor={'white'}
                               color={'teal.300'}
+                              as={ReactLink}
+                              to={`?view=courses&courses-id=${item.id}`}
                             >
                               Detail
                             </Button>
@@ -105,35 +128,40 @@ export default function Teacher() {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {coursesItem.map((course, i) => (
-                      <Tr key={i}>
-                        <Td isNumeric>{i}</Td>
-                        <Td>{course.title}</Td>
-                        <Td>{course.roadmap}</Td>
-                        <Td>{course.status}</Td>
-                        <Td>
-                          <Flex>
-                            <Button
-                              mr={10}
-                              bgColor={'white'}
-                              color={'teal.300'}
-                            >
-                              Detail
-                            </Button>
-                            <Button
-                              mr={10}
-                              bgColor={'white'}
-                              color={'teal.300'}
-                            >
-                              Edit
-                            </Button>
-                            <Button bgColor={'white'} color={'red'}>
-                              Delete
-                            </Button>
-                          </Flex>
-                        </Td>
-                      </Tr>
-                    ))}
+                    {coursesItem
+                      .filter((item) => {
+                        if (courseId) return item.idRoadmap === courseId;
+                        return item;
+                      })
+                      .map((course, i) => (
+                        <Tr key={i}>
+                          <Td isNumeric>{i}</Td>
+                          <Td>{course.title}</Td>
+                          <Td>{course.roadmap}</Td>
+                          <Td>{course.status}</Td>
+                          <Td>
+                            <Flex>
+                              <Button
+                                mr={10}
+                                bgColor={'white'}
+                                color={'teal.300'}
+                              >
+                                Detail
+                              </Button>
+                              <Button
+                                mr={10}
+                                bgColor={'white'}
+                                color={'teal.300'}
+                              >
+                                Edit
+                              </Button>
+                              <Button bgColor={'white'} color={'red'}>
+                                Delete
+                              </Button>
+                            </Flex>
+                          </Td>
+                        </Tr>
+                      ))}
                   </Tbody>
                 </Table>
               </TableContainer>
@@ -181,18 +209,21 @@ const coursesItem = [
     id: 1,
     title: 'Aljabar',
     roadmap: 'Insinyur',
+    idRoadmap: 1,
     status: 'published',
   },
   {
     id: 2,
     title: 'Matrix',
     roadmap: 'Insinyur',
+    idRoadmap: 1,
     status: 'published',
   },
   {
     id: 3,
     title: 'Biologi',
     roadmap: 'Dokter',
+    idRoadmap: 2,
     status: 'published',
   },
 ];
