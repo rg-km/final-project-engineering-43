@@ -11,13 +11,14 @@ import ListRoadmap from './pages/List-roadmap';
 import DetailRoadmap from './pages/Detail-roadmap';
 import FormAddProfesi from './pages/teacher/Form-addProfesi';
 import Roadmap from './pages/home/Roadmap';
+import ProtectedRoute from './component/ProtectedRoute';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
-        <Route path="dashboard">
+        <Route path="dashboard" element={<ProtectedRoute />}>
           <Route path="maintener" element={<Maintener />} />
           <Route path="teacher">
             <Route index element={<Teacher />} />

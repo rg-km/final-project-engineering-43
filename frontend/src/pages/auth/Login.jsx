@@ -10,15 +10,19 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import { Link as ReactLink } from 'react-router-dom';
+import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import Forminput from '../../component/Forminput';
 import useFormHook from '../../hooks/useFormHook';
+import userStore from '../../store/userAuthStore';
 
 export default function Login() {
   const { onChange, handleSubmit } = useFormHook();
+  const setUser = userStore((state) => state.login);
+  const navigate = useNavigate();
 
   const onSubmit = (value) => {
-    console.log(value);
+    setUser(value);
+    navigate('/dashboard/teacher');
   };
 
   return (
