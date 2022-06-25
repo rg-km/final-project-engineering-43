@@ -19,6 +19,10 @@ export default function AboutUs() {
             bg={"#36435A"}
             color={"white"}
             mt="24px"
+            colorScheme={"teal"}
+            onClick={() => {
+              window.location.href = "/#";
+            }}
           >
             Back to Home
           </Button>
@@ -30,7 +34,7 @@ export default function AboutUs() {
         />
       </Stack>
 
-      <Heading mt={150} mb={4} textAlign="center">
+      <Heading mt={100} mb={4} textAlign="center">
         Our Team
       </Heading>
       <Stack direction="row" justify="space-around" mt={100} mb={50}>
@@ -133,14 +137,15 @@ export default function AboutUs() {
           <Image
             borderRadius="full"
             boxSize="200px"
-            src="https://bit.ly/dan-abramov"
+            ml={4}
+            src="https://avatars.githubusercontent.com/u/33479001?v=4"
             alt="Hasan"
           />
           <Text textAlign="center" fontSize="sm" mt={5}>
             Hasan
           </Text>
           <Text textAlign="center" fontSize="sm">
-            Universitas -
+            Politeknik Elektronika Negeri Surabaya
           </Text>
           <Text textAlign="center" fontSize="sm">
             Back End developer
