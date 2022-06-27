@@ -54,7 +54,7 @@ export default function Card() {
         ))}
       </Flex>
       <Text textAlign="right" mr={39} mt={25} color="#464646">
-        <Link href="#">lihat selengkapnya</Link>
+        <Link as={ReactLink} to="/roadmap/list">lihat selengkapnya</Link>
       </Text>
     </>
   );
