@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl, FormLabel, Input } from '@chakra-ui/react';
 
-const Forminput = ({ id, label, type, onChange }) => {
+const Forminput = ({ id, label, type, onChange, value }) => {
   return (
     <FormControl id={id}>
       <FormLabel>{label}</FormLabel>
-      <Input type={type} onChange={onChange} />
+      <Input type={type} onChange={onChange} value={value} />
     </FormControl>
   );
 };
