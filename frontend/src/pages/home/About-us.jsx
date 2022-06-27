@@ -1,6 +1,12 @@
 import React from "react";
 import Footer from "../../component/Footer";
 import { Heading, Stack, Box, Button, Text, Image } from "@chakra-ui/react";
+import Vina from "../../assets/vina.jpg";
+import Dika from "../../assets/dika.jpg";
+import Figo from "../../assets/figo.jpg";
+import Dimas from "../../assets/dimas.jpg";
+import Ririn from "../../assets/ririn.jpg";
+
 
 export default function AboutUs() {
   return (
@@ -42,7 +48,7 @@ export default function AboutUs() {
           <Image
             borderRadius="full"
             boxSize="200px"
-            src="https://media-exp2.licdn.com/dms/image/C5603AQEx0m_inWhazg/profile-displayphoto-shrink_800_800/0/1622333012890?e=1661385600&v=beta&t=0qKPISsx_zJXV1KIT2zjPmr5YWgsOo7bKGlodQSrr0I"
+            src={Vina}
             alt="Vina"
           />
           <Text textAlign="center" fontSize="sm" mt={5}>
@@ -60,7 +66,7 @@ export default function AboutUs() {
             borderRadius="full"
             boxSize="200px"
             ml={10}
-            src="https://media-exp2.licdn.com/dms/image/C5603AQGOw0cvXlEMZg/profile-displayphoto-shrink_800_800/0/1648115792990?e=1661385600&v=beta&t=jlPi5XPzA1z9xyJGjI39NFMWZTDSLHldcJUOOdWeHwg"
+            src={Dika}
             alt="Dika"
           />
           <Text textAlign="center" fontSize="sm" mt={5}>
@@ -77,7 +83,7 @@ export default function AboutUs() {
           <Image
             borderRadius="full"
             boxSize="200px"
-            src="https://media-exp2.licdn.com/dms/image/D5603AQGopmUG8g1o0g/profile-displayphoto-shrink_800_800/0/1643946299865?e=1661385600&v=beta&t=uafAHZ7ldVbbGRelZQnUx48roBIsR3tVh7TepgNewsA"
+            src={Figo}
             alt="Figo"
           />
           <Text textAlign="center" fontSize="sm" mt={5}>
@@ -103,7 +109,7 @@ export default function AboutUs() {
           <Image
             borderRadius="full"
             boxSize="200px"
-            src="https://media-exp2.licdn.com/dms/image/C4D03AQGmnEXr5kP5IA/profile-displayphoto-shrink_800_800/0/1655815452932?e=1661385600&v=beta&t=hndlKpqspIdzwtbtoPfQcVB8S_GpT-W-W3PM_HQHAPc"
+            src={Dimas}
             alt="Dimas"
           />
           <Text textAlign="center" fontSize="sm" mt={5}>
@@ -120,7 +126,7 @@ export default function AboutUs() {
           <Image
             borderRadius="full"
             boxSize="200px"
-            src="https://media-exp2.licdn.com/dms/image/C4E03AQH_kn4Q02Gdrw/profile-displayphoto-shrink_800_800/0/1649384301473?e=1661385600&v=beta&t=JEcOwbYoEx5uVE3fWqJ9rZ5c5mglHoto8Q1cQUYU4vU"
+            src={Ririn}
             alt="Ririn"
           />
           <Text textAlign="center" fontSize="sm" mt={5}>
