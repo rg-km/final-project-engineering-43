@@ -72,7 +72,7 @@ export default function Teacher() {
     };
     fetchCourses();
     fetchRoadmap();
-  }, [setRoadmaps, setCoursesState]);
+  }, []);
 
   useEffect(() => {
     const viewParams = searchParams.get('view');
@@ -206,6 +206,8 @@ export default function Teacher() {
                                 mr={10}
                                 bgColor={'white'}
                                 color={'teal.300'}
+                                as={ReactLink}
+                                to={`${course.id}/edit-materi`}
                               >
                                 Edit
                               </Button>

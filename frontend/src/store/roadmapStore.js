@@ -11,6 +11,11 @@ const useRoadmapStore = create(
       const roadmaps = get().roadmaps;
       return roadmaps.find((roadmap) => roadmap.id === id);
     },
+    getAllRoadmapName: () =>
+      get().roadmaps.map((roadmap) => ({
+        title: roadmap.title,
+        id: roadmap.id,
+      })),
     clearRoadmaps: () => set({ length: 0, roadmaps: [] }),
   }))
 );
