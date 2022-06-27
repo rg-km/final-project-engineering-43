@@ -15,7 +15,7 @@ import Forminput from '../../component/Forminput';
 import { Link as ReactLink, useNavigate, useParams } from 'react-router-dom';
 import useFormHook from '../../hooks/useFormHook';
 import FormInputFile from '../../component/FormInputFile';
-import { useState, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect, useEffect } from 'react';
 import useRoadmapStore from '../../store/roadmapStore';
 import uploadImage from '../../services/uploadImageApi';
 import { storeRoadmap } from '../../services/roadmapApi';
@@ -32,7 +32,7 @@ export default function FormAddProfesi() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (id) {
       const roadmap = getRoadmap(id);
       setRoadmap(roadmap);
@@ -40,17 +40,21 @@ export default function FormAddProfesi() {
   }, [id, getRoadmap]);
 
   const onSubmit = async (value) => {
-    setLoading(true);
-    const { errorImage, url } = await uploadImage(value.thumbnail);
-    if (errorImage) return;
-    if (!value.nama && !value.deskripsi) return;
-    const { error } = await storeRoadmap({
-      title: value.nama,
-      description: value.deskripsi,
-      thumbnail: url,
-    });
-    if (error) console.log(error);
-    navigate('/dashboard/teacher?view=roadmap');
+    if (roadmap) {
+      console.log(value);
+    } else {
+      setLoading(true);
+      const { errorImage, url } = await uploadImage(value.thumbnail);
+      if (errorImage) return;
+      if (!value.nama && !value.deskripsi) return;
+      const { error } = await storeRoadmap({
+        title: value.nama,
+        description: value.deskripsi,
+        thumbnail: url,
+      });
+      if (error) console.log(error);
+      navigate('/dashboard/teacher?view=roadmap');
+    }
   };
 
   return (
@@ -89,20 +93,21 @@ export default function FormAddProfesi() {
         <VStack as="form" onSubmit={handleSubmit(onSubmit)} mt="1rem" gap={2}>
           <FormInputFile
             label="Add thumbnail"
+            value={roadmap ? roadmap.thumbnail : ''}
             onChange={onChange('thumbnail')}
           />
           <Forminput
             id="nama"
             label="Nama"
             type="text"
-            value={roadmap?.title}
+            value={roadmap ? roadmap.title : ''}
             onChange={onChange('nama')}
           />
           <FormControl>
             <FormLabel htmlFor="deskripsi">Deskripsi</FormLabel>
             <Textarea
               onChange={onChange('deskripsi')}
-              value={roadmap?.description}
+              value={roadmap ? roadmap.description : ''}
             />
           </FormControl>
           <HStack w={'full'} justifyContent="space-between">

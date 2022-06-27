@@ -9,11 +9,15 @@ const useFormHook = () => {
       setFormData({ ...formData, [name]: e.target.value });
     }
   };
+
+  const value = (name, value) => setFormData({ ...formData, [name]: value });
+
   const handleSubmit = (onSubmit) => (e) => {
     e.preventDefault();
+    e.stopPropagation();
     onSubmit(formData);
   };
-  return { onChange, handleSubmit };
+  return { onChange, handleSubmit, value };
 };
 
 export default useFormHook;
