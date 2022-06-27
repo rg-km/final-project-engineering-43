@@ -59,7 +59,7 @@ export default function listRoadmap() {
                     <Td>{item.title}</Td>
                     <Td>{item.status}</Td>
                     <Td>
-                      <Link as={ReactLink} to="/12/course" color={'teal.300'}>{item.action}</Link>
+                      <Link as={ReactLink} to="/roadmap/detail" color={'teal.300'}>{item.action}</Link>
                     </Td>
                   </Tr>
                 );
