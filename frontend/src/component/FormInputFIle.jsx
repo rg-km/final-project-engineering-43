@@ -11,16 +11,8 @@ import {
 import { useState, useEffect } from 'react';
 import { FcAddImage } from 'react-icons/fc';
 
-<<<<<<< HEAD
 export default function FormInputFile({ onChange, label }) {
-=======
-export default function FormInputFIle({ onChange, label, value }) {
->>>>>>> b975013 (revert: display roadmap on career path pages)
   const [photo, setPhoto] = useState();
-
-  useEffect(() => {
-    if (value) setPhoto(value);
-  }, [value]);
 
   return (
     <Box
@@ -39,14 +31,6 @@ export default function FormInputFIle({ onChange, label, value }) {
       {photo ? (
         <VStack mb="4">
           <Image src={photo} width="full" objectFit="contain" />
-          {value && (
-            <Input
-              type="text"
-              value={value}
-              onChange={onChange}
-              visibility="hidden"
-            />
-          )}
           <Button onClick={() => setPhoto()}>Hapus</Button>
         </VStack>
       ) : (

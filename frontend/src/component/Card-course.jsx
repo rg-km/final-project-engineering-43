@@ -67,11 +67,6 @@ export default function Card() {
             </Box>
           ))}
       </Flex>
-      <Text textAlign="right" mr={39} mt={25} color="#464646">
-        <Link as={ReactLink} to="/career">
-          lihat selengkapnya
-        </Link>
-      </Text>
     </>
   );
 }
