@@ -14,6 +14,7 @@ import FormAddProfesi from "./pages/teacher/Form-addProfesi";
 import Roadmap from "./pages/home/Roadmap";
 import ProtectedRoute from "./component/ProtectedRoute";
 import CareerPath from "./pages/home/Career-path";
+import DetailMaintener from "./pages/maintener/Detail-maintener";
 
 function App() {
   return (
@@ -23,7 +24,11 @@ function App() {
         <Route path="about" element={<AboutUs />} />
         <Route path="career" element={<CareerPath />} />
         <Route path="dashboard" element={<ProtectedRoute />}>
-          <Route path="maintener" element={<Maintener />} />
+          <Route path="maintener">
+            <Route index element={<Maintener />} />
+            <Route path="detail" element={<DetailMaintener />} />
+          </Route>
+
           <Route path="teacher">
             <Route index element={<Teacher />} />
             <Route path="tambah-materi" element={<AddMateri />} />

@@ -1,5 +1,6 @@
-import React from 'react';
-import Footer from '../../component/Footer';
+import React from "react";
+import Footer from "../../component/Footer";
+import { Link as ReactLink } from "react-router-dom";
 
 import {
   Button,
@@ -18,7 +19,7 @@ import {
   TabPanels,
   TabPanel,
   Flex,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 /**
  * Halaman maintener
  * Halaman ini diguanakan untuk mengelola setiap perubahan yang ada
@@ -52,8 +53,14 @@ export default function Maintener() {
                         <Td>{i + 1}</Td>
                         <Td>{item.materi}</Td>
                         <Td>
-                          <Button mr={10} bgColor={'white'} color={'teal.300'}>
-                            Detail
+                          <Button
+                            as={ReactLink}
+                            to="/dashboard/maintener/detail"
+                            mr={10}
+                            bgColor={"white"}
+                            color={"teal.300"}
+                          >
+                            {item.action}
                           </Button>
                         </Td>
                       </Tr>
@@ -81,12 +88,12 @@ export default function Maintener() {
                           <Flex>
                             <Button
                               mr={10}
-                              bgColor={'white'}
-                              color={'teal.300'}
+                              bgColor={"white"}
+                              color={"teal.300"}
                             >
                               Edit
                             </Button>
-                            <Button bgColor={'white'} color={'red'}>
+                            <Button bgColor={"white"} color={"red"}>
                               Delete
                             </Button>
                           </Flex>
@@ -108,25 +115,25 @@ export default function Maintener() {
 const users = [
   {
     id: 1,
-    name: 'John',
-    role: 'user',
+    name: "John",
+    role: "user",
   },
   {
     id: 2,
-    name: 'Lucas',
-    role: 'teacher',
+    name: "Lucas",
+    role: "teacher",
   },
 ];
 
 const itemTable = [
   {
     no: 1,
-    materi: 'Persamaan 2 variable',
-    action: 'Detail',
+    materi: "Persamaan 2 variable",
+    action: "Detail",
   },
   {
     no: 2,
-    materi: 'Kerangka Manusia',
-    action: 'Detail',
+    materi: "Kerangka Manusia",
+    action: "Detail",
   },
 ];

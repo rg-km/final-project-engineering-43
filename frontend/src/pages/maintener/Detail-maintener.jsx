@@ -1,6 +1,7 @@
-import { Box, Text, Flex, Button } from '@chakra-ui/react';
-import Footer from '../component/Footer';
-import DiffViewer from '../component/DiffViewer';
+import { Box, Text, Flex, Button } from "@chakra-ui/react";
+import Footer from "../../component/Footer";
+import DiffViewer from "../../component/DiffViewer";
+import { Link as ReactLink } from "react-router-dom";
 
 // HALAMAN DETAIL PERUBAHAN MATERI
 /**
@@ -42,6 +43,8 @@ export default function detailMaintener() {
             backgroundColor="red"
             width="90px"
             height={35}
+            as={ReactLink}
+            to="/dashboard/maintener"
           >
             Reject
           </Button>
@@ -54,6 +57,8 @@ export default function detailMaintener() {
             backgroundColor="#37E2D5"
             height={35}
             width={90}
+            as={ReactLink}
+            to="/dashboard/maintener"
           >
             Accept
           </Button>
