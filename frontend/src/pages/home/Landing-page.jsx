@@ -1,9 +1,9 @@
-import React from 'react';
-import Footer from '../../component/Footer';
-import bg from '../../assets/bg.png';
-import CardCourse from '../../component/Card-course';
-import { Box, Text, Button, Container } from '@chakra-ui/react';
-import { Link as ReactLink } from 'react-router-dom';
+import React from "react";
+import Footer from "../../component/Footer";
+import bg from "../../assets/bg.png";
+import CardCourse from "../../component/Card-course";
+import { Box, Text, Button, Container } from "@chakra-ui/react";
+import { Link as ReactLink } from "react-router-dom";
 
 export default function Landing() {
   return (

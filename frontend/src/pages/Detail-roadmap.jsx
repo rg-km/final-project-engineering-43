@@ -1,6 +1,6 @@
-import React from 'react';
-import Footer from './../component/Footer';
-import { Link as ReactLink } from 'react-router-dom';
+import React from "react";
+import Footer from "./../component/Footer";
+import { Link as ReactLink } from "react-router-dom";
 
 import {
   Box,
@@ -14,7 +14,7 @@ import {
   Th,
   Td,
   TableContainer,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 /**
  *
@@ -38,7 +38,9 @@ export default function detailRoadmap() {
         </Text>
         <Flex ml="168px" mt="27px">
           <Text fontSize="20px">
-            <Link as={ReactLink} to="/roadmap/list">List Roadmap</Link>
+            <Link as={ReactLink} to="/roadmap/list">
+              List Roadmap
+            </Link>
           </Text>
         </Flex>
         <TableContainer width="75%" ml="160px" mt="20px">
@@ -59,7 +61,9 @@ export default function detailRoadmap() {
                     <Td>{item.materi}</Td>
                     <Td>{item.status}</Td>
                     <Td>
-                      <Link as={ReactLink} to="/12/course" color={'teal.300'}>{item.action}</Link>
+                      <Link as={ReactLink} to="/12/course" color={"teal.300"}>
+                        {item.action}
+                      </Link>
                     </Td>
                   </Tr>
                 );
@@ -76,20 +80,20 @@ export default function detailRoadmap() {
 const itemTable = [
   {
     no: 1,
-    materi: 'Pengenalan Profesi Dokter',
-    status: 'published',
-    action: 'Detail',
+    materi: "Pengenalan Profesi Dokter",
+    status: "published",
+    action: "Detail",
   },
   {
     no: 2,
-    materi: 'Etika Medis',
-    status: 'published',
-    action: 'Detail',
+    materi: "Etika Medis",
+    status: "published",
+    action: "Detail",
   },
   {
     no: 3,
-    materi: 'Genetika',
-    status: 'coming soon',
-    action: 'Detail',
+    materi: "Genetika",
+    status: "coming soon",
+    action: "Detail",
   },
 ];
