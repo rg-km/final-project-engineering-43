@@ -1,6 +1,6 @@
-import React from 'react';
-import Footer from '../component/Footer';
-import { Link as ReactLink } from 'react-router-dom';
+import React from "react";
+import Footer from "../component/Footer";
+import { Link as ReactLink } from "react-router-dom";
 
 import {
   Box,
@@ -14,7 +14,7 @@ import {
   Th,
   Td,
   TableContainer,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 /**
  * Halaman dashboard untuk mengelola roadmap
@@ -38,7 +38,9 @@ export default function listRoadmap() {
         </Text>
         <Flex ml="168px" mt="27px">
           <Text fontSize="20px">
-            <Link as={ReactLink} to="/path">Materi</Link>
+            <Link as={ReactLink} to="/path">
+              Materi
+            </Link>
           </Text>
         </Flex>
         <TableContainer width="75%" ml="160px" mt="20px">
@@ -59,7 +61,13 @@ export default function listRoadmap() {
                     <Td>{item.title}</Td>
                     <Td>{item.status}</Td>
                     <Td>
-                      <Link as={ReactLink} to="/roadmap/detail" color={'teal.300'}>{item.action}</Link>
+                      <Link
+                        as={ReactLink}
+                        to="/roadmap/detail"
+                        color={"teal.300"}
+                      >
+                        {item.action}
+                      </Link>
                     </Td>
                   </Tr>
                 );
@@ -76,20 +84,20 @@ export default function listRoadmap() {
 const itemTable = [
   {
     no: 1,
-    title: 'Dokter',
-    status: 'published',
-    action: 'Detail',
+    title: "Dokter",
+    status: "published",
+    action: "Detail",
   },
   {
     no: 2,
-    title: 'Guru',
-    status: 'published',
-    action: 'Detail',
+    title: "Guru",
+    status: "published",
+    action: "Detail",
   },
   {
     no: 3,
-    title: 'Teknisi Robot',
-    status: 'coming soon',
-    action: 'Detail',
+    title: "Teknisi Robot",
+    status: "coming soon",
+    action: "Detail",
   },
 ];

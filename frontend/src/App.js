@@ -1,19 +1,19 @@
-import LandingPage from './pages/home/Landing-page';
-import { Routes, Route } from 'react-router-dom';
-import Header from './component/Header';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
-import AboutUs from './pages/home/About-us';
-import Maintener from './pages/maintener/Maintener-dashboard';
-import Teacher from './pages/teacher/Teacher-dashboard';
-import Detail from './pages/home/Detail-course';
-import AddMateri from './pages/teacher/Form-addMateri';
-import ListRoadmap from './pages/List-roadmap';
-import DetailRoadmap from './pages/Detail-roadmap';
-import FormAddProfesi from './pages/teacher/Form-addProfesi';
-import Roadmap from './pages/home/Roadmap';
-import ProtectedRoute from './component/ProtectedRoute';
-import CareerPath from './pages/home/Career-path'
+import LandingPage from "./pages/home/Landing-page";
+import { Routes, Route } from "react-router-dom";
+import Header from "./component/Header";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import AboutUs from "./pages/home/About-us";
+import Maintener from "./pages/maintener/Maintener-dashboard";
+import Teacher from "./pages/teacher/Teacher-dashboard";
+import Detail from "./pages/home/Detail-course";
+import AddMateri from "./pages/teacher/Form-addMateri";
+import ListRoadmap from "./pages/List-roadmap";
+import DetailRoadmap from "./pages/Detail-roadmap";
+import FormAddProfesi from "./pages/teacher/Form-addProfesi";
+import Roadmap from "./pages/home/Roadmap";
+import ProtectedRoute from "./component/ProtectedRoute";
+import CareerPath from "./pages/home/Career-path";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
         <Route path="about" element={<AboutUs />} />
-        <Route path="career" element={<CareerPath/>}/>
+        <Route path="career" element={<CareerPath />} />
         <Route path="dashboard" element={<ProtectedRoute />}>
           <Route path="maintener" element={<Maintener />} />
           <Route path="teacher">
