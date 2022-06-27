@@ -16,10 +16,17 @@ import {
   TabPanel,
   Heading,
   HStack,
+  Text,
+  Box,
 } from '@chakra-ui/react';
 import Footer from '../../component/Footer';
 import { Link as ReactLink, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import useRoadmapStore from '../../store/roadmapStore';
+import { getAllRoadmap } from '../../services/roadmapApi';
+import shalow from 'zustand/shallow';
+import useCoursesStore from '../../store/coursesStore';
+import { getAllCourses } from '../../services/coursesApi';
 
 /**
  * Halaman Dashboard teacher
@@ -28,23 +35,61 @@ import { useState, useEffect } from 'react';
 
 export default function Teacher() {
   const [tabIndex, setTabIndex] = useState(0);
-  const [courseId, setCourseId] = useState();
+  const [roadmap, setRoadmap] = useState();
+  const [courses, setCourses] = useState();
+  const { setRoadmaps, roadmaps, getRoadmap } = useRoadmapStore(
+    (state) => ({
+      setRoadmaps: state.setRoadmaps,
+      roadmaps: state.roadmaps,
+      getRoadmap: state.getRoadmap,
+    }),
+    shalow
+  );
+
+  const { coursesState, setCoursesState, filteredCoursesState } =
+    useCoursesStore((state) => ({
+      coursesState: state.courses,
+      setCoursesState: state.setCourses,
+      filteredCoursesState: state.filtered,
+    }));
+
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const fetchRoadmap = async () => {
+      const { error, response } = await getAllRoadmap();
+      if (error) {
+        console.log(error);
+      }
+      setRoadmaps(response.data);
+    };
+    const fetchCourses = async () => {
+      const { error, response } = await getAllCourses();
+      if (error) {
+        console.log(error);
+      }
+      setCoursesState(response.data);
+    };
+    fetchCourses();
+    fetchRoadmap();
+  }, [setRoadmaps, setCoursesState]);
 
   useEffect(() => {
     const viewParams = searchParams.get('view');
     if (viewParams === 'courses') {
-      setTabIndex(1);
       const idParams = searchParams.get('courses-id');
       if (idParams) {
-        console.log(idParams);
-        setCourseId(parseInt(idParams));
+        const { courses, roadmap } = filteredCoursesState(getRoadmap(idParams));
+        setCourses(courses);
+        setRoadmap(roadmap);
+        setTabIndex(1);
       }
     } else {
-      setCourseId();
+      setRoadmap();
+      setCourses(coursesState);
       setTabIndex(0);
     }
-  }, [courseId, searchParams]);
+  }, [searchParams]);
 
   return (
     <>
@@ -81,63 +126,72 @@ export default function Teacher() {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {tableItem.map((item, i) => (
-                      <Tr key={i}>
-                        <Td isNumeric>{i}</Td>
-                        <Td>{item.title}</Td>
-                        <Td>{item.status}</Td>
-                        <Td>
-                          <Flex>
-                            <Button
-                              mr={10}
-                              bgColor={'white'}
-                              color={'teal.300'}
-                              as={ReactLink}
-                              to={`?view=courses&courses-id=${item.id}`}
-                            >
-                              Detail
-                            </Button>
-                            <Button
-                              mr={10}
-                              bgColor={'white'}
-                              color={'teal.300'}
-                            >
-                              Edit
-                            </Button>
-                            <Button bgColor={'white'} color={'red'}>
-                              Delete
-                            </Button>
-                          </Flex>
-                        </Td>
-                      </Tr>
-                    ))}
+                    {roadmaps &&
+                      roadmaps.map((item, i) => (
+                        <Tr key={item.id}>
+                          <Td isNumeric>{i + 1}</Td>
+                          <Td>{item.title}</Td>
+                          <Td>{item.status}</Td>
+                          <Td>
+                            <Flex>
+                              <Button
+                                mr={10}
+                                bgColor={'white'}
+                                color={'teal.300'}
+                                as={ReactLink}
+                                to={`?view=courses&courses-id=${item.id}`}
+                              >
+                                Detail
+                              </Button>
+                              <Button
+                                mr={10}
+                                bgColor={'white'}
+                                color={'teal.300'}
+                                as={ReactLink}
+                                to={`${item.id}/edit-profesi`}
+                              >
+                                Edit
+                              </Button>
+                              <Button bgColor={'white'} color={'red'}>
+                                Delete
+                              </Button>
+                            </Flex>
+                          </Td>
+                        </Tr>
+                      ))}
                   </Tbody>
                 </Table>
               </TableContainer>
             </TabPanel>
             <TabPanel p={0}>
+              {roadmap && (
+                <Box mb="8">
+                  <Heading mb="4" as="h2">
+                    {roadmap.title}
+                  </Heading>
+                  <Text mb="4">{roadmap.description}</Text>
+                  <Text color="gray.500">
+                    Materi yang akan di pelajari jika ingin menjadi{' '}
+                    {roadmap.title}
+                  </Text>
+                </Box>
+              )}
               <TableContainer>
                 <Table variant="striped">
                   <Thead>
                     <Tr>
                       <Th isNumeric>No</Th>
                       <Th>Title</Th>
-                      <Th>Roadmap</Th>
                       <Th>Status</Th>
                       <Th>Action</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {coursesItem
-                      .filter((item) => {
-                        if (courseId) return item.idRoadmap === courseId;
-                        return item;
-                      })
-                      .map((course, i) => (
+                    {courses &&
+                      courses.map((course, i) => (
                         <Tr key={i}>
-                          <Td isNumeric>{i}</Td>
+                          <Td isNumeric>{i + 1}</Td>
                           <Td>{course.title}</Td>
-                          <Td>{course.roadmap}</Td>
                           <Td>{course.status}</Td>
                           <Td>
                             <Flex>
@@ -185,112 +239,3 @@ const buttonContent = [
     link: 'tambah-materi',
   },
 ];
-
-const tableItem = [
-  {
-    id: 1,
-    status: 'published',
-    title: 'Dokter',
-  },
-  {
-    id: 2,
-    status: 'waiting',
-    title: 'Insinyur',
-  },
-  {
-    id: 3,
-    status: 'reject',
-    title: 'Tentara',
-  },
-];
-
-const coursesItem = [
-  {
-    id: 1,
-    title: 'Aljabar',
-    roadmap: 'Insinyur',
-    idRoadmap: 1,
-    status: 'published',
-  },
-  {
-    id: 2,
-    title: 'Matrix',
-    roadmap: 'Insinyur',
-    idRoadmap: 1,
-    status: 'published',
-  },
-  {
-    id: 3,
-    title: 'Biologi',
-    roadmap: 'Dokter',
-    idRoadmap: 2,
-    status: 'published',
-  },
-];
-
-// const TableItem = [
-//   {
-//     no: 1,
-//     tittle: 'Kompetensi Kepribadian',
-//     profesi: 'Guru',
-//     status: 'Draft',
-//     action: (
-//       <Flex>
-//         <Button mr={10} bgColor={'white'} color={'teal.300'}>
-//           Edit
-//         </Button>
-//         <Button bgColor={'white'} color={'red'}>
-//           Delete
-//         </Button>
-//       </Flex>
-//     ),
-//   },
-//   {
-//     no: 2,
-//     tittle: 'Kompetensi Profesional',
-//     profesi: 'Guru',
-//     status: 'Draft',
-//     action: (
-//       <Flex>
-//         <Button mr={10} bgColor={'white'} color={'teal.300'}>
-//           Edit
-//         </Button>
-//         <Button bgColor={'white'} color={'red'}>
-//           Delete
-//         </Button>
-//       </Flex>
-//     ),
-//   },
-//   {
-//     no: 3,
-//     tittle: 'Kompetensi pedagogik',
-//     profesi: 'Guru',
-//     status: 'Draft',
-//     action: (
-//       <Flex>
-//         <Button mr={10} bgColor={'white'} color={'teal.300'}>
-//           Edit
-//         </Button>
-//         <Button bgColor={'white'} color={'red'}>
-//           Delete
-//         </Button>
-//       </Flex>
-//     ),
-//   },
-//   {
-//     no: 4,
-//     tittle: 'Kompetensi Sosial',
-//     profesi: 'Guru',
-//     status: 'Draft',
-//     action: (
-//       <Flex>
-//         <Button mr={10} bgColor={'white'} color={'teal.300'}>
-//           Edit
-//         </Button>
-//         <Button bgColor={'white'} color={'red'}>
-//           Delete
-//         </Button>
-//       </Flex>
-//     ),
-//   },
-// ];
