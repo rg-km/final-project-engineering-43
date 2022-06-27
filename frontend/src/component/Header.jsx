@@ -204,7 +204,7 @@ const NAV_ITEMS = [
     href: '/dashboard/teacher',
   },
   {
-    label: 'Maintener',
+    label: 'Mainteneer',
     href: '/dashboard/maintener',
   },
 ];

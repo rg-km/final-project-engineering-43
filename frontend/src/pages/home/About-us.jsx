@@ -28,9 +28,9 @@ export default function AboutUs() {
           </Button>
         </Box>
         <Image
-          boxSize="200px"
-          src="https://bit.ly/dan-abramov"
-          alt="Dan Abramov"
+          boxSize="auto"
+          src="https://s.kaskus.id/r540x540/images/2017/07/25/9615193_20170725012628.jpg"
+          alt="Cita cita"
         />
       </Stack>
 

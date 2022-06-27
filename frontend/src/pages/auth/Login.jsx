@@ -14,15 +14,24 @@ import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import Forminput from '../../component/Forminput';
 import useFormHook from '../../hooks/useFormHook';
 import userStore from '../../store/userAuthStore';
+import axios from 'axios';
 
 export default function Login() {
   const { onChange, handleSubmit } = useFormHook();
   const setUser = userStore((state) => state.login);
   const navigate = useNavigate();
 
-  const onSubmit = (value) => {
-    setUser(value);
-    navigate('/dashboard/teacher');
+  const onSubmit = async (value) => {
+
+    try{
+      const response = await axios.post('https://dev-example.sanbercloud.com/api/login',{
+        email: value.email,
+        password: value.password})
+        setUser(response.data)
+        navigate("/dashboard/teacher")
+    }catch (e){
+      console.log(e);
+    }
   };
 
   return (

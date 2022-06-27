@@ -11,7 +11,7 @@ import {
 import { useState } from 'react';
 import { FcAddImage } from 'react-icons/fc';
 
-export default function FormInputFIle({ onChange, label }) {
+export default function FormInputFile({ onChange, label }) {
   const [photo, setPhoto] = useState();
 
   return (

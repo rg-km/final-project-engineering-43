@@ -9,14 +9,29 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import useFormHook from '../../hooks/useFormHook';
-import { Link as ReactLink } from 'react-router-dom';
+import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import Forminput from '../../component/Forminput';
+import userStore from '../../store/userAuthStore';
+import axios from "axios";
 
 export default function Register() {
   const { onChange, handleSubmit } = useFormHook();
+  const navigate = useNavigate();
+  const setUser = userStore((state) => state.login);
 
-  const onSubmit = (value) => {
-    console.log(value);
+  const onSubmit = async (value) => {
+    // console.log(value);
+
+    try{
+      const response = await axios.post('https://dev-example.sanbercloud.com/api/register', {
+        name: value.username,
+        email: value.email,
+        password: value.password})
+        setUser(response.data)
+        navigate("/dashboard/teacher")
+    }catch (e){
+      console.log(e);
+    }
   };
 
   return (
