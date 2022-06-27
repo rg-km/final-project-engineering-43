@@ -54,11 +54,11 @@ export default function Card() {
               <Text mb="8px" textAlign="left" color="gray.500" noOfLines={2}>
                 {cardItem.description}
               </Text>
-              <Text textAlign="right" mr={21} color="#37E2D5">
+              <Flex justifyContent="flex-end" mt={5} color="#37E2D5">
                 <Link as={ReactLink} to={`/${cardItem.id}/course`}>
-                  pelajari lanjut
+                  lihat selengkapnya
                 </Link>
-              </Text>
+              </Flex>
             </Box>
           </Box>
         ))}
