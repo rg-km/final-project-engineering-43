@@ -13,6 +13,7 @@ import DetailRoadmap from './pages/Detail-roadmap';
 import FormAddProfesi from './pages/teacher/Form-addProfesi';
 import Roadmap from './pages/home/Roadmap';
 import ProtectedRoute from './component/ProtectedRoute';
+import CareerPath from './pages/home/Career-path'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" element={<Header />}>
         <Route index element={<LandingPage />} />
         <Route path="about" element={<AboutUs />} />
+        <Route path="career" element={<CareerPath/>}/>
         <Route path="dashboard" element={<ProtectedRoute />}>
           <Route path="maintener" element={<Maintener />} />
           <Route path="teacher">
