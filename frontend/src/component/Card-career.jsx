@@ -8,6 +8,7 @@ import {
   Heading,
   useBreakpointValue,
 } from '@chakra-ui/react';
+import { Link as ReactLink } from 'react-router-dom';
 
 export default function Card() {
     const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
@@ -41,7 +42,7 @@ export default function Card() {
                   {cardItem.desc}
                 </Text>
                 <Text textAlign="right" mr={21} color="#37E2D5">
-                  <Link>
+                  <Link as={ReactLink} to='/12/course'>
                     pelajari lanjut
                   </Link>
                 </Text>

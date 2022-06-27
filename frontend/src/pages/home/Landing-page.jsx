@@ -47,7 +47,7 @@ export default function Landing() {
             mt="35px"
             colorScheme="teal"
             as={ReactLink}
-            to="/roadmap/list"
+            to="/career"
           >
             Lihat semua materi
           </Button>
