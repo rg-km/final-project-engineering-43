@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '../component/Footer';
+import { Link as ReactLink } from 'react-router-dom';
 
 import {
   Box,
@@ -37,10 +38,7 @@ export default function listRoadmap() {
         </Text>
         <Flex ml="168px" mt="27px">
           <Text fontSize="20px">
-            <Link>Materi</Link>
-          </Text>
-          <Text ml={10} fontSize="20px">
-            <Link>Perubahan Materi</Link>
+            <Link as={ReactLink} to="/path">Materi</Link>
           </Text>
         </Flex>
         <TableContainer width="75%" ml="160px" mt="20px">
@@ -61,7 +59,7 @@ export default function listRoadmap() {
                     <Td>{item.title}</Td>
                     <Td>{item.status}</Td>
                     <Td>
-                      <Link color={'teal.300'}>{item.action}</Link>
+                      <Link as={ReactLink} to="/12/course" color={'teal.300'}>{item.action}</Link>
                     </Td>
                   </Tr>
                 );
